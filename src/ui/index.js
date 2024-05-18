@@ -20,7 +20,6 @@ import "@spectrum-web-components/theme/sp-theme.js";
 import "@spectrum-web-components/button/sp-button.js";
 
 import addOnUISdk, { ClientStorage } from "https://new.express.adobe.com/static/add-on-sdk/sdk.js";
-// import { simpleGit } from 'simple-git';
 
 addOnUISdk.ready.then(async () => {
   console.log("addOnUISdk is ready for use.");

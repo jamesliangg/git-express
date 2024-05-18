@@ -35,7 +35,6 @@ module.exports = {
   externals: {
     "add-on-sdk-document-sandbox": "add-on-sdk-document-sandbox",
     "express-document-sdk": "express-document-sdk",
-    "simple-git": "commonjs simple-git",
   },
   plugins: [
     new HtmlWebpackPlugin({

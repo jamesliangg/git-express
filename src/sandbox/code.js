@@ -42,11 +42,18 @@ function start() {
                 for (const page of pages) {
                     console.log(`Page: ${page.name} (ID: ${page.id})`);
                     console.log(`Type: ${page.type}`);
-                    const children = page.allChildren;
+                    const pageNodeChildren = page.allChildren;
                     // https://developer.adobe.com/express/add-ons/docs/references/document-sandbox/document-apis/classes/VisualNode/
-                    for (const child of children) {
-                        console.log(`Child: ${child.name} (ID: ${child.id})`);
-                        console.log(`Type: ${child.type}`);
+                    for (const pageNodeChild of pageNodeChildren) {
+                        console.log(`Child: ${pageNodeChild.name} (ID: ${pageNodeChild.id})`);
+                        console.log(`Type: ${pageNodeChild.type}`);
+                        const visualNodeChildren = pageNodeChild.allChildren;
+                        for (const visualNodeChild of visualNodeChildren) {
+                            // https://developer.adobe.com/express/add-ons/docs/references/document-sandbox/document-apis/classes/TextNode/
+                            console.log(`Child: ${visualNodeChild.name} (ID: ${visualNodeChild.id})`);
+                            console.log(`Type: ${visualNodeChild.type}`);
+                            console.log(`Translation: x - ${visualNodeChild.translation.x} y - ${visualNodeChild.translation.y}`)
+                        }
                     }
                 }
             } catch (error) {

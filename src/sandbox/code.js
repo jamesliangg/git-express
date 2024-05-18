@@ -1,8 +1,29 @@
 import addOnSandboxSdk from "add-on-sdk-document-sandbox";
 import { editor } from "express-document-sdk";
+import simpleGit from 'simple-git';
 
 // Get the document sandbox runtime.
 const { runtime } = addOnSandboxSdk.instance;
+
+// https://developer.adobe.com/express-add-ons/docs/references/addonsdk/instance-clientStorage/
+// https://developer.adobe.com/express-add-ons/docs/guides/develop/#storing-and-retrieving-client-side-data
+async function initRepository() {
+    try {
+        const repo = await addOnSandboxSdk.instance.clientStorage.getItem('repository');
+        if (repo) {
+            console.log('Repository already exists');
+        } else {
+            const newRepo = {
+                commits: [],
+                files: {}
+            };
+            await addOnSandboxSdk.instance.clientStorage.setItem('repository', newRepo);
+            console.log('Repository initialized');
+        }
+    } catch (error) {
+        console.log('Failed to initialize repository:', error);
+    }
+}
 
 function start() {
     // APIs to be exposed to the UI runtime
@@ -60,7 +81,10 @@ function start() {
             } catch (error) {
                 console.error("Error listing children:", error);
             }
-        }
+        },
+        initRepository: async () => {
+            await initRepository();
+        },
     };
 
     // Expose `sandboxApi` to the UI runtime.

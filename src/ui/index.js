@@ -21,10 +21,16 @@ addOnUISdk.ready.then(async () => {
         await sandboxProxy.listChildren();
     });
 
+    const initRepo = document.getElementById("initRepo");
+    listChildren.addEventListener("click", async event => {
+        await sandboxProxy.initRepository();
+    });
+
     // Enable the button only when:
     // 1. `addOnUISdk` is ready,
     // 2. `sandboxProxy` is available, and
     // 3. `click` event listener is registered.
     createRectangleButton.disabled = false;
     listChildren.disabled = false;
+    initRepo.disabled = false;
 });

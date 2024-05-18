@@ -14,10 +14,9 @@ addOnUISdk.ready.then(async () => {
     const createRectangleButton = document.getElementById("createRectangle");
     createRectangleButton.addEventListener("click", async event => {
         await sandboxProxy.createRectangle();
-        await sandboxProxy.listChildren();
     });
 
-    const listChildren = document.getElementById("createRectangle");
+    const listChildren = document.getElementById("listChildren");
     listChildren.addEventListener("click", async event => {
         await sandboxProxy.listChildren();
     });

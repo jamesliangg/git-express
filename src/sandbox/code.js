@@ -52,6 +52,7 @@ function start() {
                             // https://developer.adobe.com/express/add-ons/docs/references/document-sandbox/document-apis/classes/TextNode/
                             console.log(`Child: ${visualNodeChild.name} (ID: ${visualNodeChild.id})`);
                             console.log(`Type: ${visualNodeChild.type}`);
+                            // https://developer.adobe.com/express/add-ons/docs/references/document-sandbox/document-apis/interfaces/Point/
                             console.log(`Translation: x - ${visualNodeChild.translation.x} y - ${visualNodeChild.translation.y}`)
                         }
                     }

@@ -1,5 +1,5 @@
 {
-    "testId": "bfdefd48-767d-48ce-81e9-8880de9d1c26",
+    "testId": "6967ddb3-fe2e-468c-8a09-d72dd25b5397",
     "name": "Git Express",
     "version": "1.0.0",
     "manifestVersion": 2,
@@ -9,14 +9,15 @@
                 "name": "Express",
                 "apiVersion": 1
             }
-        ]
+        ],
+        "experimentalApis": true
     },
     "entryPoints": [
         {
             "type": "panel",
             "id": "panel1",
             "main": "index.html",
-            "documentSandbox": "sandbox/code.js"
+            "documentSandbox": "code.js"
         }
     ]
 }

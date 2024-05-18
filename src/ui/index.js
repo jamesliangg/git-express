@@ -14,6 +14,12 @@ addOnUISdk.ready.then(async () => {
     const createRectangleButton = document.getElementById("createRectangle");
     createRectangleButton.addEventListener("click", async event => {
         await sandboxProxy.createRectangle();
+        await sandboxProxy.listChildren();
+    });
+
+    const listChildren = document.getElementById("createRectangle");
+    listChildren.addEventListener("click", async event => {
+        await sandboxProxy.listChildren();
     });
 
     // Enable the button only when:
@@ -21,4 +27,5 @@ addOnUISdk.ready.then(async () => {
     // 2. `sandboxProxy` is available, and
     // 3. `click` event listener is registered.
     createRectangleButton.disabled = false;
+    listChildren.disabled = false;
 });
